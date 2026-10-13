@@ -1,0 +1,13 @@
+GitHub Repository:
+
+https://github.com/ankitsharma071/Brazilian-E-Commerce-Analytics-PowerBI-SQL/tree/main
+
+
+Dataset Link :
+
+https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+
+Reddit:
+
+https://www.reddit.com/r/dataanalysis/comments/1up5srv/built_my_first_power_bi_dashboard_using_sql_and/
