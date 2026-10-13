@@ -8,7 +8,7 @@
     <title>Oscar Zapata — Data & Business Analytics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -24,7 +24,7 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="small-line"></span> DATA & BUSINESS ANALYTICS</p>
           <p class="intro">Hi, I’m Oscar Zapata.</p>
-          <h1 id="hero-title">I am a Snr. Data Analyst with <span class="accent">extensive business experience and perspective.</span></h1>
+          <h1 id="hero-title">I am a Senior Data Analyst with <span class="accent">extensive business experience and perspective.</span></h1>
           <p class="hero-description">I combine business experience—especially in finance, sales management, inventory, and procurement—with Excel, Power BI, and SQL to support clear, actionable business decisions. I am currently studying statistics more deeply, and advancing my Python skills so I can provide more advanced analysis and predictive analytics.</p>
           <div class="button-row"><a class="button button-primary" href="#projects">View projects <span aria-hidden="true">↗</span></a><a class="button button-outline" href="./Docs/Oscar_Zapata_Senior_Data_Analyst_CV.docx" download aria-describedby="cv-status">Download CV <span aria-hidden="true">↓</span></a></div>
           <p class="draft-note" id="cv-status">Word document (.docx)</p>
@@ -54,32 +54,44 @@
             <div class="journey-cycle-center" aria-hidden="true">REPEAT</div>
           </div>
         </div>
-        <div class="about-text"><p>I start by finding the data the business question needs. That may mean combining Excel files with data from ERP, CRM, and other business systems, or working with databases such as Microsoft SQL Server and PostgreSQL. For database sources, I extract the relevant data with SQL queries or Power Query.</p><p>Before analyzing it, I check the data’s integrity, clean inconsistencies, and format it so the measures are reliable. With a sound dataset, I can explore the business question using Excel PivotTables and dashboards, Power BI semantic models, and, when appropriate, Python for statistical or predictive analysis.</p><p>Once the analysis answers the question, I look for ways to automate the report’s refresh so it is easier to update and maintain.</p></div>
+        <div class="about-text journey-copy"><p>I start by finding the data the business question needs. That may mean combining Excel files with data from ERP, CRM, and other business systems, or working with databases such as Microsoft SQL Server and PostgreSQL. For database sources, I extract the relevant data with SQL queries or Power Query.</p><p>Before analyzing it, I check the data’s integrity, clean inconsistencies, and format it so the measures are reliable. With a sound dataset, I can explore the business question using Excel PivotTables and dashboards, Power BI semantic models, and, when appropriate, Python for statistical or predictive analysis.</p><p>Once the analysis answers the question, I look for ways to automate the report’s refresh so it is easier to update and maintain.</p></div>
       </section>
       <section class="about-detail case-study container" id="case-studies" aria-labelledby="case-studies-title">
         <div>
           <p class="eyebrow">CASE STUDIES</p>
           <h2 id="case-studies-title">Examples of What I have done.</h2>
           <figure class="case-study-preview">
-            <a href="./Docs/Excel/Postgres Dashboard Sample.JPG" target="_blank" rel="noopener noreferrer" aria-label="Open the Olist marketplace Excel dashboard image at full size">
+            <a href="./Docs/olist-dashboard-view.html" target="_blank" rel="noopener noreferrer" aria-label="Open the Olist marketplace Excel dashboard image at full size">
               <img src="./Docs/Excel/Postgres Dashboard Sample.JPG" alt="Excel dashboard showing Olist marketplace sales, freight, orders, stores, and top customers and sellers" loading="lazy" />
             </a>
             <figcaption>Olist Marketplace Performance · Select the image to enlarge</figcaption>
           </figure>
+          <figure class="case-study-preview">
+            <a href="./Docs/olist-model-view.html" target="_blank" rel="noopener noreferrer" aria-label="Open the marketplace sales snowflake schema at full size">
+              <img src="./Docs/Olist_Marketplace_Snowflake_Schema.svg" alt="Snowflake schema with order_items at the center, joined to orders and sellers; orders connects to customers" loading="lazy" />
+            </a>
+            <figcaption>Marketplace sales data model · Select the image to enlarge</figcaption>
+          </figure>
         </div>
         <div class="about-text case-study-copy">
-          <p class="case-study-number">CASE STUDY 01 · POSTGRESQL + EXCEL</p>
-          <h3>Postgres Dashboard Sample</h3>
-          <p>This case study explores how marketplace transactions can become a clear view of sales activity and the customers and sellers behind it. I used a 10,000 order-item sample from the Olist dataset, loaded the source CSVs into a local PostgreSQL database, and connected Excel to that database.</p>
-          <p>I kept each sold order item as the analytical grain. In Power Query, I combined order items with orders, customers, and sellers using their IDs, while retaining those technical keys and adding readable customer and store names. The consolidated FactSales table brings merchandise sales, freight, order status, and customer and seller details into one reporting-ready dataset.</p>
-          <p>From that dataset, I created PivotTables for merchandise sales, freight value, order count, store count, and the top 10 customers and sellers by sales. I then built an Excel dashboard in Brazilian real (BRL) with native charts linked to the PivotTables, so the figures can be traced back to the analysis and refreshed when the source data changes.</p>
-          <a class="case-study-download" href="./Docs/Excel/Postgres Dashboard Sample.xlsx" download>Download the Excel case study <span aria-hidden="true">↓</span></a>
+          <p class="case-study-number">CASE STUDY 01 · Marketplace Sales Dashboard</p>
+          <p class="case-study-skills">POSTGRESQL + SQL + EXCEL + POWER QUERY</p>
+          <h3>BUSINESS REQUEST:</h3>
+          <p class="case-study-request"><em>We want to examine the company's sales behavior using a simple Excel dashboard. The data is stored in .csv files, but we first want to create a PostgreSQL database for storage and controlled access. We then want to inspect the tables in Excel and build the final dashboard there. Make the process easy to refresh and update.</em></p>
+          <p><strong>1. Connect and extract.</strong> This case study explores how marketplace transactions can become a clear view of sales activity and the customers and sellers behind it. I used a 10,000 order-item sample from a sales dataset, loaded the source CSVs into a local PostgreSQL database, then connected Excel to that database and extracted the tables relevant to a sales dashboard.</p>
+          <p><strong>2. Consolidate the data.</strong> I kept each sold order item as the data model grain. Because the final output was an Excel dashboard, I needed a single dataset with the necessary information. In Power Query, I combined the staged Excel tables: order items (the fact table) with orders, customers, and sellers (dimension tables) through left outer joins on order_id, customer_id, and seller_id. I retained the technical keys and added readable customer and store names. The consolidated FactSales table brings merchandise sales, freight, order status, and customer and seller details into one reporting-ready dataset.</p>
+          <p><strong>3. Analyze and present.</strong> From that dataset, I created PivotTables for merchandise sales, freight value, order count, store count, and the top 10 customers and sellers by sales. I then built an Excel dashboard in Brazilian real (BRL) with native charts linked to the PivotTables, so the figures can be traced back to the analysis and refreshed when the source data changes.</p>
+          <div class="case-study-downloads">
+            <a class="case-study-download" href="./Docs/Excel/Postgres Dashboard Sample.xlsx" download>Download the Excel case study <span aria-hidden="true">↓</span></a>
+            <a class="case-study-download" href="./Docs/Olist_PostgreSQL_Import.txt" download>Download the SQL code <span aria-hidden="true">↓</span></a>
+            <a class="case-study-download" href="./Docs/FactSales_PowerQuery_M.txt" download>Download the PowerQuery code <span aria-hidden="true">↓</span></a>
+          </div>
           <p class="case-study-note">The workbook includes saved results. Refreshing its database connection requires a compatible local PostgreSQL setup.</p>
         </div>
       </section>
       <section class="projects-section finance-section" id="projects" aria-labelledby="finance-title">
         <div class="container">
-          <div class="section-heading"><div><p class="eyebrow">FINANCE WORK · EXCEL</p><h2 id="finance-title">Finance work.</h2></div><p>Examples that reflect the financial planning, performance, and commercial analysis I have done in previous roles.</p></div>
+          <div class="section-heading"><div><p class="eyebrow">EXCEL FILES AVAILABLE FOR DOWNLOAD</p><h2 id="finance-title">Finance work.</h2></div><p>Examples that reflect the financial planning, performance, and commercial analysis I have done in previous roles.</p></div>
           <div class="projects-grid finance-grid">
             <article class="project-card">
               <div class="project-visual dashboard-visual finance-image"><img src="./Docs/Excel/Budget_vs_Actual_Data.JPG" alt="Budget versus actual Excel report with department and region filters" loading="lazy" /></div>
@@ -102,7 +114,7 @@
       </section>
       <section class="projects-section dashboards-section" id="dashboards" aria-labelledby="dashboards-title">
         <div class="container">
-          <div class="section-heading"><div><p class="eyebrow">DATA ANALYSIS · DASHBOARDS</p><h2 id="dashboards-title">Business questions.<br />Data-driven answers.</h2></div><p>Power BI examples showing how I turn business data into clear, interactive reporting.</p></div>
+          <div class="section-heading"><div><p class="eyebrow">POWERBI FILES AVAILABLE FOR DOWNLOAD</p><h2 id="dashboards-title">Business questions.<br />Dashboards for Data-driven answers.</h2></div><p>Power BI examples showing how I turn business data into clear, interactive reporting.</p></div>
           <div class="projects-grid">
             <article class="project-card">
               <div class="project-visual dashboard-visual"><img src="./Docs/PowerBI/Brazilian_ECommerce_Dashboard.JPG" alt="Brazilian e-commerce dashboard showing revenue, orders, delivery, and customer trends" loading="lazy" /></div>

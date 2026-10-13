@@ -1,0 +1,105 @@
+let
+    // Excel Tables used as the FactSales sources.
+    //
+    // For a new text field such as store_type:
+    // 1. Add the column to the Excel source table.
+    // 2. Add it in the relevant Expand... step.
+    // 3. Optionally add its type in ChangedTypes.
+    // 4. Refresh FactSales.
+    Source = Excel.CurrentWorkbook(){[Name="order_items"]}[Content],
+    Orders = Excel.CurrentWorkbook(){[Name="orders"]}[Content],
+    Customers = Excel.CurrentWorkbook(){[Name="customers"]}[Content],
+    Sellers = Excel.CurrentWorkbook(){[Name="sellers"]}[Content],
+
+    MergeOrders =
+        Table.NestedJoin(Source, {"order_id"}, Orders, {"order_id"}, "Orders", JoinKind.LeftOuter),
+
+    // ADD NEW COLUMNS FROM THE orders TABLE HERE.
+    // Add the source name in both lists below.
+    ExpandOrders =
+        Table.ExpandTableColumn(
+            MergeOrders,
+            "Orders",
+            {
+                "customer_id",
+                "order_status",
+                "order_purchase_timestamp",
+                "order_delivered_customer_date",
+                "order_estimated_delivery_date"
+                // Example: ,"new_orders_column"
+            },
+            {
+                "customer_id",
+                "order_status",
+                "purchase_date",
+                "delivered_date",
+                "estimated_delivery_date"
+                // Example: ,"new_orders_column"
+            }
+        ),
+
+    MergeCustomers =
+        Table.NestedJoin(ExpandOrders, {"customer_id"}, Customers, {"customer_id"}, "Customers", JoinKind.LeftOuter),
+
+    // ADD NEW COLUMNS FROM THE customers TABLE HERE.
+    ExpandCustomers =
+        Table.ExpandTableColumn(
+            MergeCustomers,
+            "Customers",
+            {
+                "customer_unique_id",
+                "customer_city",
+                "customer_state",
+                "customer_name"
+                // Example: ,"customer_segment"
+            },
+            {
+                "customer_unique_id",
+                "customer_city",
+                "customer_state",
+                "customer_name"
+                // Example: ,"customer_segment"
+            }
+        ),
+
+    MergeSellers =
+        Table.NestedJoin(ExpandCustomers, {"seller_id"}, Sellers, {"seller_id"}, "Sellers", JoinKind.LeftOuter),
+
+    // ADD NEW COLUMNS FROM THE sellers TABLE HERE.
+    ExpandSellers =
+        Table.ExpandTableColumn(
+            MergeSellers,
+            "Sellers",
+            {
+                "seller_city",
+                "seller_state",
+                "store_name"
+                // Example: ,"store_type"
+            },
+            {
+                "seller_city",
+                "seller_state",
+                "store_name"
+                // Example: ,"store_type"
+            }
+        ),
+
+    // ADD A TYPE HERE ONLY WHEN THE NEW COLUMN NEEDS ONE.
+    ChangedTypes =
+        Table.TransformColumnTypes(
+            ExpandSellers,
+            {
+                {"order_item_id", Int64.Type},
+                {"shipping_limit_date", type datetime},
+                {"price", type number},
+                {"freight_value", type number},
+                {"purchase_date", type datetime},
+                {"delivered_date", type datetime},
+                {"estimated_delivery_date", type datetime},
+                {"customer_name", type text},
+                {"store_name", type text}
+                // Example: ,{"customer_segment", type text}
+            }
+        )
+in
+    ChangedTypes

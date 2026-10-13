@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" role="img" aria-labelledby="title desc">
+  <title id="title">Marketplace sales snowflake schema</title>
+  <desc id="desc">Order items is the central fact table. It connects to orders by order ID and sellers by seller ID. Orders connects to customers by customer ID.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#153f3b" flood-opacity=".09"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#23685b"/>
+    </marker>
+    <style>
+      .page { fill: #f9f9f5; }
+      .ink { fill: #182b35; }
+      .muted { fill: #59666b; }
+      .green { fill: #23685b; }
+      .label { font: 700 12px 'DM Sans', Arial, sans-serif; letter-spacing: 2px; }
+      .heading { font: 700 29px 'Manrope', Arial, sans-serif; letter-spacing: -.8px; }
+      .card-title { font: 700 19px 'Manrope', Arial, sans-serif; }
+      .field { font: 14px 'DM Sans', Arial, sans-serif; }
+      .small { font: 12px 'DM Sans', Arial, sans-serif; }
+      .key { font: 700 14px 'DM Sans', Arial, sans-serif; }
+      .link { fill: none; stroke: #23685b; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="page" width="1100" height="760"/>
+  <path d="M50 55h29" stroke="#23685b" stroke-width="3"/>
+  <text x="91" y="60" class="label green">CASE STUDY 01 · DATA MODEL</text>
+  <text x="50" y="106" class="heading ink">Marketplace sales · snowflake schema</text>
+  <text x="50" y="135" class="field muted">One row per sold order item. Power Query flattens these joins into FactSales.</text>
+
+  <!-- Relationships are drawn behind the tables. Arrows point toward the one side. -->
+  <path class="link" d="M385 460 H321"/>
+  <path class="link" d="M715 460 H779"/>
+  <path class="link" d="M180 379 V353"/>
+
+  <!-- Customer dimension, connected through orders. -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="156" width="280" height="196" rx="10" fill="#e7efdf" stroke="#c8d9ce"/>
+  </g>
+  <text x="60" y="190" class="card-title ink">DIM customers</text>
+  <path d="M60 204 H300" stroke="#c8d9ce"/>
+  <rect x="60" y="213" width="115" height="27" rx="6" fill="#d0e4d6"/>
+  <text x="69" y="232" class="key green">customer_id</text>
+  <text x="60" y="264" class="field ink">customer_unique_id</text>
+  <text x="60" y="290" class="field ink">customer_city</text>
+  <text x="60" y="316" class="field ink">customer_state</text>
+  <text x="60" y="342" class="field ink">customer_name</text>
+
+  <!-- Order dimension. -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="379" width="280" height="297" rx="10" fill="#eef2ed" stroke="#dce2dc"/>
+  </g>
+  <text x="60" y="415" class="card-title ink">DIM orders</text>
+  <path d="M60 433 H300" stroke="#d3ddd4"/>
+  <rect x="60" y="449" width="95" height="27" rx="6" fill="#d0e4d6"/>
+  <text x="69" y="468" class="key green">order_id</text>
+  <rect x="60" y="481" width="115" height="27" rx="6" fill="#d0e4d6"/>
+  <text x="69" y="500" class="key green">customer_id</text>
+  <text x="60" y="531" class="field ink">order_status</text>
+  <text x="60" y="557" class="field ink">order_purchase_timestamp</text>
+  <text x="60" y="583" class="field ink">order_delivered_customer_date</text>
+  <text x="60" y="609" class="field ink">order_estimated_delivery_date</text>
+
+  <!-- Central fact table. -->
+  <g filter="url(#shadow)">
+    <rect x="385" y="379" width="330" height="297" rx="12" fill="#153f3b"/>
+  </g>
+  <text x="409" y="415" class="card-title" fill="#f9f9f5">Fact table order_items</text>
+  <path d="M409 433 H691" stroke="#65877e"/>
+  <rect x="409" y="449" width="100" height="27" rx="6" fill="#d0e4d6"/>
+  <text x="419" y="468" class="key green">order_id</text>
+  <rect x="409" y="481" width="100" height="27" rx="6" fill="#d0e4d6"/>
+  <text x="419" y="500" class="key green">seller_id</text>
+  <text x="409" y="531" class="field" fill="#f9f9f5">order_item_id</text>
+  <text x="409" y="557" class="field" fill="#f9f9f5">product_id</text>
+  <text x="409" y="583" class="field" fill="#f9f9f5">shipping_limit_date</text>
+  <text x="409" y="609" class="field" fill="#f9f9f5">price</text>
+  <text x="409" y="635" class="field" fill="#f9f9f5">freight_value</text>
+
+  <!-- Seller dimension. -->
+  <g filter="url(#shadow)">
+    <rect x="780" y="379" width="280" height="297" rx="10" fill="#eef2ed" stroke="#dce2dc"/>
+  </g>
+  <text x="800" y="415" class="card-title ink">DIM sellers</text>
+  <path d="M800 433 H1040" stroke="#d3ddd4"/>
+  <rect x="800" y="449" width="100" height="27" rx="6" fill="#d0e4d6"/>
+  <text x="810" y="468" class="key green">seller_id</text>
+  <text x="800" y="531" class="field ink">seller_city</text>
+  <text x="800" y="557" class="field ink">seller_state</text>
+  <text x="800" y="583" class="field ink">store_name</text>
+
+  <path d="M50 711 H1050" stroke="#dce2dc"/>
+  <text x="50" y="735" class="small muted">Join path: order_items → orders → customers; order_items → sellers</text>
+</svg>

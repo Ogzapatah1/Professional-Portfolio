@@ -24,14 +24,14 @@ h1, h2, h3, .brand { font-family: 'Manrope', sans-serif; }
 .skip-link:focus { top: 12px; }
 .site-header { background: var(--paper); border-bottom: 1px solid var(--line); }
 .header-inner { height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+.brand { font-size: 31px; font-weight: 800; letter-spacing: -1px; }
 nav { display: flex; align-items: center; gap: 38px; font-size: 14px; font-weight: 600; }
 nav a { padding-block: 10px; }
 nav a:hover { color: var(--green); }
 nav .nav-contact { display: flex; gap: 22px; border: 1px solid #bac7bf; padding: 12px 18px; border-radius: 6px; }
 .hero { padding-block: 90px 74px; }
 .hero-copy { max-width: 850px; }
-.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--green); line-height: 1.6; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--green); line-height: 1.6; }
 .hero .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 29px; }
 .small-line { width: 28px; height: 2px; background: var(--green); }
 .intro { font-size: 20px; margin-bottom: 17px; }
@@ -52,15 +52,21 @@ h1 { font-size: clamp(38px, 3.4vw, 48px); letter-spacing: -1.8px; line-height: 1
 .about-detail h2 { font-size: 27px; letter-spacing: -1px; line-height: 1.4; margin-top: 16px; }
 .about-text { color: var(--muted); font-size: 14px; line-height: 1.9; }
 .about-text p + p { margin-top: 17px; }
+.journey-copy { padding-top: 95px; }
 .case-study-preview { margin: 28px 0 0; max-width: 500px; }
 .case-study-preview a { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 .case-study-preview a:hover { box-shadow: 0 12px 24px #153f3b14; }
 .case-study-preview img { display: block; width: 100%; height: auto; }
 .case-study-preview figcaption { margin-top: 9px; color: var(--muted); font-size: 11px; line-height: 1.5; }
-.case-study-copy .case-study-number { margin: 0; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; }
-.case-study-copy h3 { margin-top: 10px; color: var(--ink); font-size: 22px; letter-spacing: -.6px; line-height: 1.35; }
+.case-study-copy { padding-top: 95px; }
+.case-study-copy .case-study-number { margin: 0; color: var(--green); font-size: 15px; font-weight: 700; letter-spacing: .5px; line-height: 1.4; }
+.case-study-copy .case-study-skills { margin-top: 7px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: 1.2px; line-height: 1.5; }
+.case-study-copy h3 { margin-top: 17px; color: var(--ink); font-size: 22px; letter-spacing: -.6px; line-height: 1.35; }
 .case-study-copy h3 + p { margin-top: 18px; }
-.case-study-download { display: inline-flex; align-items: center; gap: 24px; margin-top: 24px; padding: 13px 17px; border: 1px solid var(--dark-green); border-radius: 6px; background: var(--dark-green); color: white; font-size: 12px; font-weight: 700; line-height: 1.4; }
+.case-study-copy .case-study-request { padding: 16px 18px; border-left: 3px solid var(--green); border-radius: 0 7px 7px 0; background: #eef2ed; color: #294a44; font-size: 15px; line-height: 1.7; }
+.case-study-request em { font-style: italic; }
+.case-study-downloads { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.case-study-download { display: inline-flex; align-items: center; gap: 24px; padding: 13px 17px; border: 1px solid var(--dark-green); border-radius: 6px; background: var(--dark-green); color: white; font-size: 12px; font-weight: 700; line-height: 1.4; }
 .case-study-download:hover { background: #236054; }
 .case-study-copy .case-study-note { margin-top: 11px; font-size: 11px; line-height: 1.6; }
 .journey-cycle { position: relative; width: min(100%, 440px); aspect-ratio: 1; margin: 28px auto 0; }
@@ -115,6 +121,12 @@ h1 { font-size: clamp(38px, 3.4vw, 48px); letter-spacing: -1.8px; line-height: 1
 .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; border-top: 1px solid var(--line); padding-block: 27px 35px; }
 .site-footer .brand { font-size: 18px; }
 .site-footer p, .site-footer > span { font-size: 10px; color: var(--muted); }
+.image-viewer-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-block: 24px; border-bottom: 1px solid var(--line); }
+.image-viewer-main { padding-block: 38px 60px; }
+.image-viewer-main h1 { margin-top: 10px; font-size: clamp(28px, 3vw, 40px); }
+.image-viewer-main > p:not(.eyebrow) { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.image-viewer-main figure { margin: 28px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: white; }
+.image-viewer-main img { display: block; width: 100%; height: auto; }
 @media (min-width: 1500px) { .hero { padding-block: 105px 90px; } }
 @media (max-width: 1050px) {
   .container { width: calc(100% - 64px); }
@@ -129,16 +141,18 @@ h1 { font-size: clamp(38px, 3.4vw, 48px); letter-spacing: -1.8px; line-height: 1
   html { scroll-padding-top: 24px; }
   .container { width: calc(100% - 40px); }
   .header-inner { height: 80px; gap: 16px; }
-  .brand { font-size: 20px; }
+  .brand { font-size: 22px; }
   nav { gap: 18px; font-size: 12px; }
   nav .nav-contact { padding: 8px 11px; gap: 8px; }
   .hero { padding-block: 48px; }
   h1 { font-size: clamp(34px, 7vw, 48px); letter-spacing: -1.3px; }
   .desktop-break { display: none; }
-  .hero .eyebrow { margin-bottom: 22px; font-size: 10px; }
+  .hero .eyebrow { margin-bottom: 22px; font-size: 12px; }
   .hero-description { max-width: 560px; font-size: 15px; }
   .about-detail { grid-template-columns: 1fr; gap: 23px; padding-block: 38px 45px; }
   .about-detail h2 { font-size: 28px; }
+  .journey-copy { padding-top: 0; }
+  .case-study-copy { padding-top: 0; }
   .section-heading { display: block; }
   .section-heading h2 { font-size: 34px; }
   .section-heading > p { margin-top: 20px; max-width: 560px; }
@@ -166,6 +180,7 @@ h1 { font-size: clamp(38px, 3.4vw, 48px); letter-spacing: -1.8px; line-height: 1
   .journey-step { min-height: 72px; padding: 7px; }
   .journey-step strong { font-size: 10px; }
   .journey-step span { width: 19px; height: 19px; font-size: 10px; }
+  .image-viewer-header .button { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -1,0 +1,100 @@
+-- SQL equivalent of the Python script used to create and populate the PostgreSQL
+-- database from the CSV files. The original import was performed with Python;
+-- this version is provided for reference.
+
+\set ON_ERROR_STOP on
+
+-- Create the database only if it does not exist.
+SELECT format('CREATE DATABASE %I', 'olist')
+WHERE NOT EXISTS (
+    SELECT 1 FROM pg_database WHERE datname = 'olist'
+)
+\gexec
+
+\connect olist
+\encoding UTF8
+
+-- Matches the Python script's default --if-exists replace behavior.
+DROP TABLE IF EXISTS
+    customers, order_items, order_payments, order_reviews,
+    orders, products, sellers, product_category_name_translation;
+
+CREATE TABLE customers (
+    customer_id TEXT,
+    customer_unique_id TEXT,
+    customer_zip_code_prefix BIGINT,
+    customer_city TEXT,
+    customer_state TEXT
+);
+
+CREATE TABLE order_items (
+    order_id TEXT,
+    order_item_id BIGINT,
+    product_id TEXT,
+    seller_id TEXT,
+    shipping_limit_date TEXT,
+    price DOUBLE PRECISION,
+    freight_value DOUBLE PRECISION
+);
+
+CREATE TABLE order_payments (
+    order_id TEXT,
+    payment_sequential BIGINT,
+    payment_type TEXT,
+    payment_installments BIGINT,
+    payment_value DOUBLE PRECISION
+);
+
+CREATE TABLE order_reviews (
+    review_id TEXT,
+    order_id TEXT,
+    review_score BIGINT,
+    review_comment_title TEXT,
+    review_comment_message TEXT,
+    review_creation_date TEXT,
+    review_answer_timestamp TEXT
+);
+
+CREATE TABLE orders (
+    order_id TEXT,
+    customer_id TEXT,
+    order_status TEXT,
+    order_purchase_timestamp TEXT,
+    order_approved_at TEXT,
+    order_delivered_carrier_date TEXT,
+    order_delivered_customer_date TEXT,
+    order_estimated_delivery_date TEXT
+);
+
+CREATE TABLE products (
+    product_id TEXT,
+    product_category_name TEXT,
+    product_name_lenght DOUBLE PRECISION,
+    product_description_lenght DOUBLE PRECISION,
+    product_photos_qty DOUBLE PRECISION,
+    product_weight_g DOUBLE PRECISION,
+    product_length_cm DOUBLE PRECISION,
+    product_height_cm DOUBLE PRECISION,
+    product_width_cm DOUBLE PRECISION
+);
+
+CREATE TABLE sellers (
+    seller_id TEXT,
+    seller_zip_code_prefix BIGINT,
+    seller_city TEXT,
+    seller_state TEXT
+);
+
+CREATE TABLE product_category_name_translation (
+    product_category_name TEXT,
+    product_category_name_english TEXT
+);
+
+\copy customers FROM 'olist_customers_dataset.csv' WITH (FORMAT csv, HEADER true)
+\copy order_items FROM 'olist_order_items_dataset.csv' WITH (FORMAT csv, HEADER true)
+\copy order_payments FROM 'olist_order_payments_dataset.csv' WITH (FORMAT csv, HEADER true)
+\copy order_reviews FROM 'olist_order_reviews_dataset.csv' WITH (FORMAT csv, HEADER true)
+\copy orders FROM 'olist_orders_dataset.csv' WITH (FORMAT csv, HEADER true)
+\copy products FROM 'olist_products_dataset.csv' WITH (FORMAT csv, HEADER true)
+\copy sellers FROM 'olist_sellers_dataset.csv' WITH (FORMAT csv, HEADER true)
+\copy product_category_name_translation FROM 'product_category_name_translation.csv' WITH (FORMAT csv, HEADER true)
