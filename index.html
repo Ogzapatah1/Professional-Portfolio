@@ -56,6 +56,27 @@
         </div>
         <div class="about-text"><p>I start by finding the data the business question needs. That may mean combining Excel files with data from ERP, CRM, and other business systems, or working with databases such as Microsoft SQL Server and PostgreSQL. For database sources, I extract the relevant data with SQL queries or Power Query.</p><p>Before analyzing it, I check the data’s integrity, clean inconsistencies, and format it so the measures are reliable. With a sound dataset, I can explore the business question using Excel PivotTables and dashboards, Power BI semantic models, and, when appropriate, Python for statistical or predictive analysis.</p><p>Once the analysis answers the question, I look for ways to automate the report’s refresh so it is easier to update and maintain.</p></div>
       </section>
+      <section class="about-detail case-study container" id="case-studies" aria-labelledby="case-studies-title">
+        <div>
+          <p class="eyebrow">CASE STUDIES</p>
+          <h2 id="case-studies-title">Examples of What I have done.</h2>
+          <figure class="case-study-preview">
+            <a href="./Docs/Excel/Postgres Dashboard Sample.JPG" target="_blank" rel="noopener noreferrer" aria-label="Open the Olist marketplace Excel dashboard image at full size">
+              <img src="./Docs/Excel/Postgres Dashboard Sample.JPG" alt="Excel dashboard showing Olist marketplace sales, freight, orders, stores, and top customers and sellers" loading="lazy" />
+            </a>
+            <figcaption>Olist Marketplace Performance · Select the image to enlarge</figcaption>
+          </figure>
+        </div>
+        <div class="about-text case-study-copy">
+          <p class="case-study-number">CASE STUDY 01 · POSTGRESQL + EXCEL</p>
+          <h3>Postgres Dashboard Sample</h3>
+          <p>This case study explores how marketplace transactions can become a clear view of sales activity and the customers and sellers behind it. I used a 10,000 order-item sample from the Olist dataset, loaded the source CSVs into a local PostgreSQL database, and connected Excel to that database.</p>
+          <p>I kept each sold order item as the analytical grain. In Power Query, I combined order items with orders, customers, and sellers using their IDs, while retaining those technical keys and adding readable customer and store names. The consolidated FactSales table brings merchandise sales, freight, order status, and customer and seller details into one reporting-ready dataset.</p>
+          <p>From that dataset, I created PivotTables for merchandise sales, freight value, order count, store count, and the top 10 customers and sellers by sales. I then built an Excel dashboard in Brazilian real (BRL) with native charts linked to the PivotTables, so the figures can be traced back to the analysis and refreshed when the source data changes.</p>
+          <a class="case-study-download" href="./Docs/Excel/Postgres Dashboard Sample.xlsx" download>Download the Excel case study <span aria-hidden="true">↓</span></a>
+          <p class="case-study-note">The workbook includes saved results. Refreshing its database connection requires a compatible local PostgreSQL setup.</p>
+        </div>
+      </section>
       <section class="projects-section finance-section" id="projects" aria-labelledby="finance-title">
         <div class="container">
           <div class="section-heading"><div><p class="eyebrow">FINANCE WORK · EXCEL</p><h2 id="finance-title">Finance work.</h2></div><p>Examples that reflect the financial planning, performance, and commercial analysis I have done in previous roles.</p></div>

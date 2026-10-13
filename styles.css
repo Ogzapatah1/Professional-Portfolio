@@ -52,6 +52,17 @@ h1 { font-size: clamp(38px, 3.4vw, 48px); letter-spacing: -1.8px; line-height: 1
 .about-detail h2 { font-size: 27px; letter-spacing: -1px; line-height: 1.4; margin-top: 16px; }
 .about-text { color: var(--muted); font-size: 14px; line-height: 1.9; }
 .about-text p + p { margin-top: 17px; }
+.case-study-preview { margin: 28px 0 0; max-width: 500px; }
+.case-study-preview a { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.case-study-preview a:hover { box-shadow: 0 12px 24px #153f3b14; }
+.case-study-preview img { display: block; width: 100%; height: auto; }
+.case-study-preview figcaption { margin-top: 9px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.case-study-copy .case-study-number { margin: 0; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; }
+.case-study-copy h3 { margin-top: 10px; color: var(--ink); font-size: 22px; letter-spacing: -.6px; line-height: 1.35; }
+.case-study-copy h3 + p { margin-top: 18px; }
+.case-study-download { display: inline-flex; align-items: center; gap: 24px; margin-top: 24px; padding: 13px 17px; border: 1px solid var(--dark-green); border-radius: 6px; background: var(--dark-green); color: white; font-size: 12px; font-weight: 700; line-height: 1.4; }
+.case-study-download:hover { background: #236054; }
+.case-study-copy .case-study-note { margin-top: 11px; font-size: 11px; line-height: 1.6; }
 .journey-cycle { position: relative; width: min(100%, 440px); aspect-ratio: 1; margin: 28px auto 0; }
 .journey-arrows { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--green); }
 .journey-arrows > path { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; opacity: .8; }
